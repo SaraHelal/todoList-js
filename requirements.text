@@ -1,0 +1,58 @@
+Version 10
+[] 
+
+Version 9
+[x] There should be an li for each todo
+[x] Each li shows the todoText property
+[x] Each li shows the completed property
+
+Version 8
+[x] There should be a working button for adding a todo
+[x] There should be a working button for editing a todo
+[x] There should be a working button for removing a todo
+[x] There should be a working button for toggling a todo
+
+
+Version 7 
+[x] It should hve a displayTodos button
+[x] The displayTodos button should run the displayTodos function
+[x] It should hve a toggleAll button
+[x] The toggleAll button should run the toggleAll function
+
+
+Version 6
+[x] It should have a function for toggling all todos
+[x] If everyThing is false => change everyThing to true
+[x] If everyThing is true => change everyThing to false
+[x] If mixed => change everyThing to True
+
+Version 5
+[x] It should have a function to displying todos
+[x] displayTodos should show the todoText and completed property
+
+
+
+Version 4
+[x] It should have a function to toggle a todo
+
+
+Version 3
+[x] It should initialize the todos variable with objects
+[x] The add function sould add objects
+[x] The edit function should edit objects
+
+Version 2
+[x] It should have a function to add a todo
+[x] It should have a function to edit a todo
+[x] It should have a function to remove a todo
+
+
+
+
+
+Version 1
+[x] It should have a place to store todos
+[x] It should have a way to display todos
+[x] It should have a way to add a todo
+[x] It should have a way to edit a todo
+[x] It should have a way to delete a todo
