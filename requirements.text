@@ -1,3 +1,14 @@
+Version 12
+[x] Each todo should have it's own edit button
+[x] The edit buttons should actually work
+[x] If someone hits cancel we shoud do nothing
+[x] If someone hits ok and it is empty we shoud do nothing
+
+
+Version 11
+[x] Each todo should have it's own toggle button
+[x] The toggle buttons should actually work 
+
 Version 10
 [x] Each todo should have it's own remove button
 [x] The remove buttons should actually work 
