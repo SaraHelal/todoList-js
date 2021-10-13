@@ -1,0 +1,67 @@
+body{
+  background-color: #c3c3ca;
+}
+
+#toggle-all{
+  position: absolute;
+  top: 0;
+  left: -500px;
+}
+#toggle-all + label{
+    left: 17px;
+    position: absolute;
+    font-size: 56px;
+    cursor: pointer;
+    opacity: .5;
+    top: -41px;
+}
+
+#toggle-all + label::before{
+  /*content: "\21E9";*/
+  content: "\02EF";
+  color: gray;
+}
+
+/*--------------- todoApp -------------*/
+.todo-app{
+ margin-top: 50px;
+}
+
+.todo-app .header h1{
+  font-size: 100px;
+
+}
+
+.todo-app #main{
+  width: 50%;
+  position: relative;
+}
+
+
+.todo-app #main > input{
+  padding: 11px 53px;
+  font-size: 19px;
+  text-align: left;
+  /*width: 410px;*/
+  /*cursor: auto;*/
+  box-shadow: 4px 7px #b1afaf;
+  width: 100%;
+}
+#todos-ul{
+  box-shadow: 0 1px 1px rgb(0 0 0 / 20%),
+ 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgb(0 0 0 / 20%),
+  0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgb(0 0 0 / 20%);
+}
+
+#todos-ul .view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#todos-ul .view label{
+  display: block;
+  text-align: left;
+  padding-left: 16px;
+  font-weight: 600;
+  font-size: 20px;
+}
