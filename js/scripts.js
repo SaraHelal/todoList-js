@@ -8,6 +8,11 @@
   var toggleAllButton = document.getElementById('toggle-all');
   toggleAllButton.addEventListener('click', toggleAll);
 
+  var mainFooter = document.getElementById('main-footer');
+
+  var removeAllButton = document.getElementById('remove-all-button');
+  removeAllButton.addEventListener('click' , removeAll);
+
   if(todos.length !==0){
     displayTodos();
   }
@@ -19,6 +24,7 @@
   
   function add(newTodoText){
     todos.push({ todoText: newTodoText , Completed : false});
+    removeAllButton.disabled= true;
     displayTodos();
   }
 
@@ -32,6 +38,7 @@
   }
   
   function remove(event){
+    
     var position = event.currentTarget.id.split('-')[1];
     todos.splice(position, 1);
     
@@ -68,6 +75,7 @@
         todos[i].Completed = false;
       }
       event.currentTarget.nextElementSibling.style.opacity = .5;
+      removeAllButton.disabled= true;
 
     }
     else {
@@ -76,9 +84,14 @@
         todos[i].Completed = true;
       }
       event.currentTarget.nextElementSibling.style.opacity = 1;
+      removeAllButton.disabled= false;
 
     }
     displayTodos(); 
+  }
+  function removeAll(){
+    todos.splice(0, todos.length);
+    displayTodos();
   }
 
   function displayTodos(){
@@ -87,17 +100,35 @@
     todosUl.innerHTML = '';
     if(todos.length !==0){
       toggleAllButton.nextElementSibling.style.display = "block";
+      mainFooter.className = "d-flex";
       for (var i = 0; i < todos.length; i++) {
         var todoLi = document.createElement('li');
         todoLi.className = 'list-group-item';
+        todoLi.id= 'li-'+i;
         var todoView = document.createElement('div');
         todoView.className = 'view';
+        var removeTodo = document.createElement('button');
+        todoLi.addEventListener('mouseenter' ,function(event){
+          event.currentTarget.firstChild.lastChild.style.display = "block";
+          event.stopPropagation();
+        }, false);
+        todoLi.addEventListener('mouseleave' ,function(event){
+          event.currentTarget.firstChild.lastChild.style.display ="none";
+          event.stopPropagation();
+        }, false);
 
+        removeTodo.addEventListener('click' , remove);
         var todoCheckbox = document.createElement('input');
         todoCheckbox.type = 'checkbox';
         todoCheckbox.id = 'toggle-'+i;
-        
         todoCheckbox.addEventListener('click' , toggle);
+
+        removeTodo.id='remove-' +i;
+        removeTodo.className = 'remove-todo';
+        removeTodo.innerText = 'x';
+        
+         
+
         var todoLabelView = document.createElement('label');
         todoLabelView.innerText = todos[i].todoText;
         if(todos[i].Completed === true){
@@ -114,6 +145,7 @@
         }
         todoView.appendChild(todoCheckbox);
         todoView.appendChild(todoLabelView);
+        todoView.append(removeTodo);
         todoLi.appendChild(todoView);
         todosUl.appendChild(todoLi);
 
@@ -147,6 +179,7 @@
         todosUl.appendChild(todoLi);
         */
       } 
+      document.getElementById('count-todos').lastChild.innerText = todos.length;
       /*if(todos){
         var todoToggleAll = document.createElement('button');
         todoToggleAll.id = "toggle-all";
@@ -157,6 +190,8 @@
     }
     else{
       toggleAllButton.nextElementSibling.style.display = "none";
+      mainFooter.className = "d-none";
+
     }
   }
 
